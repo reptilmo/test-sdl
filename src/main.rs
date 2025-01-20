@@ -135,16 +135,14 @@ fn main() {
         if ball.position.y + 20.0 >= (HEIGHT - 10) as f32 {
             ball.position.y = (HEIGHT - 10) as f32 - 20.0;
             ball.direction.y = -ball.direction.y;
-        } else if ball.position.y - 20.0 <= 10 as f32 {
-            ball.position.y = 10 as f32 + 20.0;
+        } else if ball.position.y - 20.0 <= 10_f32 {
+            ball.position.y = 10_f32 + 20.0;
             ball.direction.y = -ball.direction.y;
         }
 
-        ball.position.x =
-            ball.position.x + ball.direction.x * (ball.velocity + ball.acceleration) * ticks as f32;
+        ball.position.x += ball.direction.x * (ball.velocity + ball.acceleration) * ticks as f32;
 
-        ball.position.y =
-            ball.position.y + ball.direction.y * (ball.velocity + ball.acceleration) * ticks as f32;
+        ball.position.y += ball.direction.y * (ball.velocity + ball.acceleration) * ticks as f32;
 
         if ball.acceleration > 0.0 {
             ball.acceleration -= 0.01;
